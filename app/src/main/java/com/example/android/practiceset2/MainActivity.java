@@ -1,7 +1,7 @@
 package com.example.android.practiceset2;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -23,43 +23,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void incrementHomeThree(View view) {
-        homeTeamScore += 3;
-        displayScore();
-    }
-    public void incrementHomeTwo(View view) {
-        homeTeamScore += 2;
-        displayScore();
-    }
-    public void incrementHomeOne(View view) {
-        homeTeamScore += 1;
-        displayScore();
-    }
+    public void updateScore(View view) {
+        ScoreButton thisButton = new ScoreButton();
+        String tag = view.getTag().toString();
+        String[] tags = tag.split("[ ]");
+        thisButton.team = tags[0];
+        thisButton.points = Integer.parseInt(tags[1]);
 
-    public void incrementGuestThree(View view) {
-        guestTeamScore += 3;
-        displayScore();
-    }
-    public void incrementGuestTwo(View view) {
-        guestTeamScore += 2;
-        displayScore();
-    }
-    public void incrementGuestOne(View view) {
-        guestTeamScore += 1;
-        displayScore();
-    }
-
-    public void decrementHomeOne(View view) {
-        homeTeamScore -= 1;
-        if (homeTeamScore <= 0) {
-            homeTeamScore = 0;
-        }
-        displayScore();
-    }
-    public void decrementGuestOne(View view) {
-        guestTeamScore -= 1;
-        if (guestTeamScore <= 0) {
-            guestTeamScore = 0;
+        switch (thisButton.team) {
+            case "home":
+                homeTeamScore += thisButton.points;
+                if (homeTeamScore <= 0) {
+                    homeTeamScore = 0;
+                }
+                break;
+            case "guest":
+                guestTeamScore += thisButton.points;
+                if (guestTeamScore <= 0) {
+                    guestTeamScore = 0;
+                }
+                break;
         }
         displayScore();
     }
@@ -73,20 +56,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-    //public void showMenu (View view) {
-    //    TextView score = (TextView) findViewById(R.id.scoreBoard);
-    //    score.setText("00:00");
-    //    TextView menuBackground = (TextView) findViewById(R.id.menuBackground);
-    //    menuBackground.setVisibility(View.GONE);
-    //    TextView menu = (TextView) findViewById(R.id.menu);
-    //    menu.setVisibility(View.VISIBLE);
-    //}
-    //public void hideMenu (View view) {
-    //    displayScore();
-    //    TextView menu = (TextView) findViewById(R.id.menu);
-    //    menu.setVisibility(View.GONE);
-    //    TextView menuBackground = (TextView) findViewById(R.id.menuBackground);
-    //    menuBackground.setVisibility(View.GONE);
-    //}
+    public class ScoreButton {
+        public String team;
+        public int points;
+    }
 }
 

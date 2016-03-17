@@ -17,9 +17,9 @@
         android:id="@+id/scoreBoard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:lines="1"
         android:layout_gravity="center"
         android:elegantTextHeight="true"
+        android:lines="1"
         android:text="@string/score"
         android:textColor="#000000"
         android:textSize="110dp" />
@@ -47,7 +47,8 @@
             android:layout_height="30dp"
             android:layout_marginTop="16dp"
             android:background="#00ffffff"
-            android:onClick="incrementHomeOne"
+            android:onClick="updateScore"
+            android:tag="home 1"
             android:text="One"
             android:textSize="24dp" />
 
@@ -56,7 +57,8 @@
             android:layout_height="30dp"
             android:layout_marginTop="16dp"
             android:background="#00ffffff"
-            android:onClick="incrementHomeTwo"
+            android:onClick="updateScore"
+            android:tag="home 2"
             android:text="Two"
             android:textSize="24dp" />
 
@@ -65,7 +67,8 @@
             android:layout_height="30dp"
             android:layout_marginTop="16dp"
             android:background="#00ffffff"
-            android:onClick="incrementHomeThree"
+            android:onClick="updateScore"
+            android:tag="home 3"
             android:text="Three"
             android:textSize="24dp" />
     </LinearLayout>
@@ -82,7 +85,8 @@
             android:layout_height="30dp"
             android:layout_marginBottom="16dp"
             android:background="#00ffffff"
-            android:onClick="incrementGuestThree"
+            android:onClick="updateScore"
+            android:tag="guest 3"
             android:text="Three"
             android:textSize="24dp" />
 
@@ -91,7 +95,8 @@
             android:layout_height="30dp"
             android:layout_marginBottom="16dp"
             android:background="#00ffffff"
-            android:onClick="incrementGuestTwo"
+            android:onClick="updateScore"
+            android:tag="guest 2"
             android:text="Two"
             android:textSize="24dp" />
 
@@ -100,7 +105,8 @@
             android:layout_height="30dp"
             android:layout_marginBottom="16dp"
             android:background="#00ffffff"
-            android:onClick="incrementGuestOne"
+            android:onClick="updateScore"
+            android:tag="guest 1"
             android:text="One"
             android:textSize="24dp" />
 
@@ -117,68 +123,6 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Menu -->
-    <!-- Not Implemented
-        <LinearLayout
-            android:id="@+id/menuBackground"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="#44000000"
-            android:visibility="gone">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#00000000"
-                android:onClick="hideMenu"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/menu"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:layout_gravity="center"
-            android:background="#aa5555ff"
-            android:orientation="vertical"
-            android:visibility="gone">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="#dd123456"
-                android:textColor="#ddaaaaff"
-                android:layout_weight="1"
-                android:text="Reset Home"
-                android:textSize="32sp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="#dd123456"
-                android:textColor="#ddaaaaff"
-                android:layout_weight="1"
-                android:text="Reset Both"
-                android:textSize="32sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="#dd123456"
-                android:textColor="#ddaaaaff"
-                android:layout_weight="1"
-                android:text="Reset Guest"
-                android:textSize="32sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"/>
-
-        </LinearLayout>
-        -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="110dp"
@@ -190,13 +134,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#50aa0000"
-            android:onClick="decrementHomeOne" />
+            android:onClick="updateScore"
+            android:tag="home -1" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#500000aa"
-            android:onClick="decrementGuestOne" />
+            android:onClick="updateScore"
+            android:tag="guest -1" />
     </LinearLayout>
 </FrameLayout>
